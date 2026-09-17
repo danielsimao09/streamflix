@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Adapta-se a diferentes ecrãs -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Streamix</title>
+
+    <!-- Ícone do separador -->
+    <link rel="icon" type="image/png" href="imagens/logo.avif">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+
+    <style type="text/tailwindcss">
+
+        @theme {
+
+            /* FONTE PRINCIPAL */
+            --font-streamix: Arial, sans-serif;
+
+            /* CORES DO STREAMIX */
+            --color-streamix: #dc2626;
+            --color-streamix-claro: #FF0000;
+
+            /* CORES SECUNDÁRIAS */
+            --color-secundaria: #9ca3af;
+
+            /* CORES DE FUNDO */
+            --color-fundo: #000000;
+            --color-fundo-card: #111827;
+
+            /* CORES DAS BORDAS */
+            --color-borda: #374151;
+
+            /* TEXTO CINZENTO */
+            --color-texto-cinza: #6b7280;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-fundo text-white font-streamix">
+
+
+    <!-- =========================================================
+         CAPA PRINCIPAL
+    ========================================================== -->
+
+    <section class="relative min-h-screen overflow-hidden">
+
+
+        <!-- Imagem de fundo -->
+
+        <div class="absolute inset-0">
+
+            <img
+                src="fundo.avif"
+                alt="Imagem de fundo"
+                class="w-full h-full object-cover"
+            >
+
+        </div>
+
+
+        <!-- Gradiente lateral -->
+
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"
+        ></div>
+
+
+        <!-- Gradiente inferior -->
+
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"
+        ></div>
+
+
+        <!-- =====================================================
+             BARRA DE NAVEGAÇÃO
+        ====================================================== -->
+
+        <header
+            id="navbar"
+            class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-sm transition-all duration-300"
+        >
+
+            <nav
+                class="px-5 sm:px-8 md:px-10 lg:px-16 py-5 sm:py-6 md:py-7 flex items-center justify-between"
+            >
+
+                <!-- LOGO -->
+
+                <h1
+                    class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-streamix"
+                >
+                    STREAMIX
+                </h1>
+
+
+                <!-- LINKS -->
+
+                <div
+                    class="hidden md:flex items-center gap-6 lg:gap-8 text-base lg:text-lg font-medium"
+                >
+
+                    <a
+                        href="#"
+                        data-translate="inicio"
+                        class="hover:text-streamix-claro transition"
+                    >
+                        Início
+                    </a>
+
+
+                    <a
+                        href="#filmes"
+                        data-translate="filmes"
+                        class="hover:text-streamix-claro transition"
+                    >
+                        Filmes
+                    </a>
+
+
+                    <a
+                        href="#planos"
+                        data-translate="planos"
+                        class="hover:text-streamix-claro transition"
+                    >
+                        Planos
+                    </a>
+
+
+                    <!-- PERGUNTAS -->
+
+                    <a
+                        href="#perguntas"
+                        data-translate="perguntas"
+                        class="hover:text-streamix-claro transition"
+                    >
+                        Perguntas 
+                    </a>
+
+                </div>
+
+
+                <!-- PESQUISA / IDIOMA / ENTRAR -->
+
+                <div class="flex items-center gap-2 sm:gap-4">
+
+
+                    <!-- Pesquisa -->
+
+                    <div class="relative hidden sm:block">
+
+                        <input
+                            id="pesquisa"
+                            type="text"
+                            placeholder="Pesquisar..."
+                            data-translate-placeholder="pesquisar"
+                            class="w-32 md:w-40 lg:w-52 bg-black/50 border border-gray-600 rounded-md pl-9 pr-3 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-red-600 transition"
+                        >
+
+                        <i
+                            class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                        ></i>
+
+                    </div>
+
+
+                    <!-- Idioma -->
+
+                    <select
+                        id="idioma"
+                        class="bg-black/50 border border-gray-500 rounded-md px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none"
+                    >
+
+                        <option value="pt">Português</option>
+
+                        <option value="en">English</option>
+
+                    </select>
+
+
+                    <!-- Entrar -->
+
+                    <button
+                        class="bg-streamix hover:bg-red-700 px-4 sm:px-6 py-2 sm:py-3 rounded-md text-sm sm:text-base font-semibold transition flex items-center gap-2"
+                    >
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <span data-translate="entrar">
+                            Entrar
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </nav>
+
+        </header>
+
+
+        <!-- =====================================================
+             CONTEÚDO PRINCIPAL
+        ====================================================== -->
+
+        <div class="relative z-10 min-h-screen flex items-center">
+
+            <div
+                class="px-5 sm:px-8 md:px-16 max-w-3xl pb-16 sm:pb-20 pt-24"
+            >
+
+                <p
+                    data-translate="original"
+                    class="text-streamix-claro font-bold text-sm sm:text-base md:text-xl mb-4 sm:mb-5"
+                >
+                    STREAMIX ORIGINAL
+                </p>
+
+
+                <h2
+                    data-translate="titulo"
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-5 sm:mb-6"
+                >
+                    Eclipse
+                </h2>
+
+
+                <!-- Informações -->
+
+                <div
+                    class="flex flex-wrap items-center gap-3 text-sm sm:text-base text-secundaria mb-5"
+                >
+
+                    <span class="flex items-center gap-2">
+
+                        <i class="fa-regular fa-star"></i>
+
+                        8.7
+
+                    </span>
+
+                    <span>•</span>
+
+                    <span>2026</span>
+
+                    <span>•</span>
+
+                    <span>16+</span>
+
+                    <span>•</span>
+
+                    <span data-translate="tipo">
+                        Filme
+                    </span>
+
+                </div>
+
+
+                <!-- Descrição -->
+
+                <p
+                    data-translate="descricao"
+                    class="text-base sm:text-lg md:text-xl text-secundaria leading-relaxed max-w-2xl mb-6 sm:mb-8"
+                >
+                    Uma equipa de investigadores viaja para um local
+                    inabitável onde descobrem um mistério que poderá
+                    mudar o futuro da humanidade.
+                </p>
+
+
+                <!-- Botões -->
+
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+
+                    <button
+                        class="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-md font-bold text-base sm:text-lg hover:bg-gray-200 transition flex items-center justify-center gap-3"
+                    >
+
+                        <i class="fa-solid fa-play"></i>
+
+                        <span data-translate="assistir">
+                            Assistir
+                        </span>
+
+                    </button>
+
+
+                    <a
+                        href="#filmes"
+                        class="bg-gray-600/80 px-6 sm:px-8 py-3 sm:py-4 rounded-md font-bold text-base sm:text-lg hover:bg-gray-500 transition flex items-center justify-center gap-3"
+                    >
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <span data-translate="informacoes">
+                            Mais informações
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FILMES
+    ========================================================== -->
+
+    <section
+        id="filmes"
+        class="bg-fundo px-5 sm:px-8 md:px-16 py-12 sm:py-16"
+    >
+
+        <div class="max-w-7xl mx-auto">
+
+
+            <!-- TÍTULO + PESQUISA -->
+
+            <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8"
+            >
+
+                <h3
+                    data-translate="populares"
+                    class="text-2xl sm:text-3xl font-bold text-streamix-claro"
+                >
+                    Populares
+                </h3>
+
+
+                <!-- Pesquisa mobile -->
+
+                <div class="relative sm:hidden">
+
+                    <input
+                        id="pesquisa-mobile"
+                        type="text"
+                        placeholder="Pesquisar filmes..."
+                        data-translate-placeholder="pesquisarFilmes"
+                        class="w-full bg-fundo-card border border-borda rounded-md pl-10 pr-4 py-3 text-sm outline-none focus:border-red-600 transition"
+                    >
+
+                    <i
+                        class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                    ></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRELHA DOS FILMES -->
+
+            <div
+                id="grelha-filmes"
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5"
+            >
+
+
+                <!-- ECLIPSE -->
+
+                <div
+                    data-filme="Eclipse"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/eclipse.avif"
+                        alt="Eclipse"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        Eclipse
+                    </h4>
+
+                </div>
+
+
+                <!-- HORIZONTE -->
+
+                <div
+                    data-filme="Horizonte"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/Horizonte.avif"
+                        alt="Horizonte"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        Horizonte
+                    </h4>
+
+                </div>
+
+
+                <!-- CÓDIGO ZERO -->
+
+                <div
+                    data-filme="Código Zero"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/codigo-zero.jpg"
+                        alt="Código Zero"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        Código Zero
+                    </h4>
+
+                </div>
+
+
+                <!-- ÚLTIMA CHANCE -->
+
+                <div
+                    data-filme="Última Chance"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/ultima-chance.avif"
+                        alt="Última Chance"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        Última Chance
+                    </h4>
+
+                </div>
+
+
+                <!-- ZONA NORTE -->
+
+                <div
+                    data-filme="Zona Norte"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/zona-norte.avif"
+                        alt="Zona Norte"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        Zona Norte
+                    </h4>
+
+                </div>
+
+
+                <!-- O QUE VIVE DEBAIXO -->
+
+                <div
+                    data-filme="O Que Vive Debaixo"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/vive-baixo.avif"
+                        alt="O Que Vive Debaixo"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        O Que Vive Debaixo
+                    </h4>
+
+                </div>
+
+
+                <!-- O VIZINHO DO 3.º ANDAR -->
+
+                <div
+                    data-filme="O Vizinho do 3.º Andar"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/vizinho.avif"
+                        alt="O Vizinho do 3.º Andar"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        O Vizinho do 3.º Andar
+                    </h4>
+
+                </div>
+
+
+                <!-- O REINO ALÉM DAS ESTRELAS -->
+
+                <div
+                    data-filme="O Reino Além das Estrelas"
+                    class="relative aspect-[2/3] overflow-hidden rounded-lg group cursor-pointer hover:scale-105 transition duration-300 bg-gradient-to-br from-red-900 via-red-600 to-black p-1"
+                >
+
+                    <img
+                        src="imagens/estrelas.avif"
+                        alt="O Reino Além das Estrelas"
+                        class="w-full h-full object-cover rounded-md"
+                    >
+
+                    <div
+                        class="absolute inset-1 bg-gradient-to-t from-black/90 via-transparent to-transparent rounded-md"
+                    ></div>
+
+                    <h4
+                        class="absolute bottom-0 left-0 p-3 sm:p-4 text-base sm:text-xl font-bold"
+                    >
+                        O Reino Além das Estrelas
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEM RESULTADOS -->
+
+            <div
+                id="sem-resultados"
+                class="hidden text-center py-16"
+            >
+
+                <i
+                    class="fa-solid fa-film text-gray-600 text-5xl mb-5"
+                ></i>
+
+                <h4
+                    data-translate="nenhumFilme"
+                    class="text-xl sm:text-2xl font-bold mb-2"
+                >
+                    Nenhum filme encontrado
+                </h4>
+
+                <p
+                    data-translate="tentarNovamente"
+                    class="text-gray-500"
+                >
+                    Tenta pesquisar por outro nome.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PLANOS DE SUBSCRIÇÃO
+    ========================================================== -->
+
+    <section
+        id="planos"
+        class="bg-fundo px-5 sm:px-8 md:px-16 py-10 sm:py-12"
+    >
+
+        <div class="max-w-6xl mx-auto">
+
+
+            <!-- TÍTULO -->
+
+            <div class="text-center mb-7">
+
+                <h3
+                    data-translate="planosTitulo"
+                    class="text-xl sm:text-2xl font-bold text-streamix-claro mb-2"
+                >
+                    Escolhe o teu plano
+                </h3>
+
+                <p
+                    data-translate="planosDescricao"
+                    class="text-secundaria text-xs sm:text-sm"
+                >
+                    Escolhe a subscrição ideal para ti.
+                </p>
+
+            </div>
+
+
+            <!-- GRELHA DOS PLANOS -->
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+            >
+
+
+                <!-- TESTE GRÁTIS -->
+
+                <div
+                    class="bg-fundo-card border border-borda rounded-lg p-4 flex flex-col hover:scale-105 transition duration-300"
+                >
+
+                    <h4
+                        data-translate="gratuito"
+                        class="text-base font-bold mb-1"
+                    >
+                        Teste Grátis
+                    </h4>
+
+                    <p
+                        data-translate="gratuitoDescricao"
+                        class="text-secundaria text-xs mb-3"
+                    >
+                        Para experimentar o Streamix.
+                    </p>
+
+
+                    <div class="mb-4">
+
+                        <span class="text-2xl font-black">
+                            0€
+                        </span>
+
+                        <span class="text-secundaria text-xs">
+                            /mês
+                        </span>
+
+                    </div>
+
+
+                    <ul class="space-y-2 text-xs mb-5 flex-1">
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Acesso limitado
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Qualidade 1080p
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            1 mês grátis
+                        </li>
+
+                    </ul>
+
+
+                    <button
+                        class="w-full border border-borda hover:bg-streamix px-3 py-2 rounded-md text-xs font-semibold transition"
+                    >
+                        Começar
+                    </button>
+
+                </div>
+
+
+                <!-- PLANO BÁSICO -->
+
+                <div
+                    class="bg-fundo-card border border-borda rounded-lg p-4 flex flex-col hover:scale-105 transition duration-300"
+                >
+
+                    <h4
+                        data-translate="basico"
+                        class="text-base font-bold mb-1"
+                    >
+                        Básico
+                    </h4>
+
+                    <p
+                        data-translate="basicoDescricao"
+                        class="text-secundaria text-xs mb-3"
+                    >
+                        Para quem vê ocasionalmente.
+                    </p>
+
+
+                    <div class="mb-4">
+
+                        <span class="text-2xl font-black">
+                            4,99€
+                        </span>
+
+                        <span class="text-secundaria text-xs">
+                            /mês
+                        </span>
+
+                    </div>
+
+
+                    <ul class="space-y-2 text-xs mb-5 flex-1">
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Catálogo completo
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Qualidade Full HD
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            1 dispositivo
+                        </li>
+
+                    </ul>
+
+
+                    <button
+                        class="w-full border border-borda hover:bg-streamix px-3 py-2 rounded-md text-xs font-semibold transition"
+                    >
+                        Subscrever
+                    </button>
+
+                </div>
+
+
+                <!-- PLANO PREMIUM -->
+
+                <div
+                    class="bg-fundo-card border border-borda rounded-lg p-4 flex flex-col hover:scale-105 transition duration-300"
+                >
+
+                    <h4
+                        data-translate="premium"
+                        class="text-base font-bold mb-1"
+                    >
+                        Premium
+                    </h4>
+
+                    <p
+                        data-translate="premiumDescricao"
+                        class="text-secundaria text-xs mb-3"
+                    >
+                        Para uma experiência completa.
+                    </p>
+
+
+                    <div class="mb-4">
+
+                        <span class="text-2xl font-black">
+                            7,99€
+                        </span>
+
+                        <span class="text-secundaria text-xs">
+                            /mês
+                        </span>
+
+                    </div>
+
+
+                    <ul class="space-y-2 text-xs mb-5 flex-1">
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Catálogo completo
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Qualidade 4K
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            3 dispositivos
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Downloads
+                        </li>
+
+                    </ul>
+
+
+                    <button
+                        class="w-full border border-borda hover:bg-streamix px-3 py-2 rounded-md text-xs font-semibold transition"
+                    >
+                        Subscrever
+                    </button>
+
+                </div>
+
+
+                <!-- PLANO PLUS+ -->
+
+                <div
+                    class="bg-fundo-card border border-borda rounded-lg p-4 flex flex-col hover:scale-105 transition duration-300"
+                >
+
+                    <h4
+                        data-translate="plus"
+                        class="text-base font-bold mb-1"
+                    >
+                        PLUS+
+                    </h4>
+
+                    <p
+                        data-translate="plusDescricao"
+                        class="text-secundaria text-xs mb-3"
+                    >
+                        Para toda a família.
+                    </p>
+
+
+                    <div class="mb-4">
+
+                        <span class="text-2xl font-black">
+                            11,99€
+                        </span>
+
+                        <span class="text-secundaria text-xs">
+                            /mês
+                        </span>
+
+                    </div>
+
+
+                    <ul class="space-y-2 text-xs mb-5 flex-1">
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Catálogo completo
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Qualidade 4K HDR
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            5 dispositivos
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-streamix"></i>
+                            Downloads
+                        </li>
+
+                    </ul>
+
+
+                    <button
+                        class="w-full border border-borda hover:bg-streamix px-3 py-2 rounded-md text-xs font-semibold transition"
+                    >
+                        Subscrever
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PERGUNTAS FREQUENTES
+    ========================================================== -->
+
+    <section
+        id="perguntas"
+        class="bg-fundo px-5 sm:px-8 md:px-16 py-12 sm:py-16"
+    >
+
+        <div class="max-w-4xl mx-auto">
+
+
+            <!-- TÍTULO -->
+
+            <div class="text-center mb-8 sm:mb-10">
+
+                <h3
+                    data-translate="perguntasTitulo"
+                    class="text-2xl sm:text-3xl font-bold text-streamix-claro mb-2"
+                >
+                    Perguntas frequentes
+                </h3>
+
+                <p
+                    data-translate="perguntasDescricao"
+                    class="text-secundaria text-sm sm:text-base"
+                >
+                    Encontra respostas às perguntas mais frequentes sobre o Streamix.
+                </p>
+
+            </div>
+
+
+            <!-- PERGUNTA 1 -->
+
+            <div
+                class="faq-item bg-fundo-card border border-borda rounded-lg mb-3 overflow-hidden"
+            >
+
+                <button
+                    class="faq-botao w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition"
+                >
+
+                    <span
+                        data-translate="pergunta1"
+                        class="font-semibold text-sm sm:text-base"
+                    >
+                        O que é o Streamix?
+                    </span>
+
+                    <i
+                        class="fa-solid fa-plus faq-icon text-streamix text-lg transition-transform duration-300"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="faq-resposta hidden px-5 pb-4 text-secundaria text-sm leading-relaxed"
+                >
+
+                    <p data-translate="resposta1">
+                        O Streamix é uma plataforma de streaming onde podes encontrar
+                        filmes e conteúdos para assistir online.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 2 -->
+
+            <div
+                class="faq-item bg-fundo-card border border-borda rounded-lg mb-3 overflow-hidden"
+            >
+
+                <button
+                    class="faq-botao w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition"
+                >
+
+                    <span
+                        data-translate="pergunta2"
+                        class="font-semibold text-sm sm:text-base"
+                    >
+                        Quais são os planos disponíveis?
+                    </span>
+
+                    <i
+                        class="fa-solid fa-plus faq-icon text-streamix text-lg transition-transform duration-300"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="faq-resposta hidden px-5 pb-4 text-secundaria text-sm leading-relaxed"
+                >
+
+                    <p data-translate="resposta2">
+                        Existem quatro opções: Teste Grátis, Básico, Premium e PLUS+.
+                        Cada plano possui diferentes funcionalidades e preços.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 3 -->
+
+            <div
+                class="faq-item bg-fundo-card border border-borda rounded-lg mb-3 overflow-hidden"
+            >
+
+                <button
+                    class="faq-botao w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition"
+                >
+
+                    <span
+                        data-translate="pergunta3"
+                        class="font-semibold text-sm sm:text-base"
+                    >
+                        Posso assistir em vários dispositivos?
+                    </span>
+
+                    <i
+                        class="fa-solid fa-plus faq-icon text-streamix text-lg transition-transform duration-300"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="faq-resposta hidden px-5 pb-4 text-secundaria text-sm leading-relaxed"
+                >
+
+                    <p data-translate="resposta3">
+                        Sim. O número de dispositivos disponíveis depende do plano
+                        escolhido.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 4 -->
+
+            <div
+                class="faq-item bg-fundo-card border border-borda rounded-lg mb-3 overflow-hidden"
+            >
+
+                <button
+                    class="faq-botao w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition"
+                >
+
+                    <span
+                        data-translate="pergunta4"
+                        class="font-semibold text-sm sm:text-base"
+                    >
+                        O Streamix funciona no telemóvel?
+                    </span>
+
+                    <i
+                        class="fa-solid fa-plus faq-icon text-streamix text-lg transition-transform duration-300"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="faq-resposta hidden px-5 pb-4 text-secundaria text-sm leading-relaxed"
+                >
+
+                    <p data-translate="resposta4">
+                        Sim. O site adapta-se a diferentes tamanhos de ecrã,
+                        incluindo computadores, tablets e telemóveis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 5 -->
+
+            <div
+                class="faq-item bg-fundo-card border border-borda rounded-lg mb-3 overflow-hidden"
+            >
+
+                <button
+                    class="faq-botao w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition"
+                >
+
+                    <span
+                        data-translate="pergunta5"
+                        class="font-semibold text-sm sm:text-base"
+                    >
+                        Como posso pesquisar um filme?
+                    </span>
+
+                    <i
+                        class="fa-solid fa-plus faq-icon text-streamix text-lg transition-transform duration-300"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="faq-resposta hidden px-5 pb-4 text-secundaria text-sm leading-relaxed"
+                >
+
+                    <p data-translate="resposta5">
+                        Podes utilizar a barra de pesquisa no topo da página ou
+                        a pesquisa disponível na secção de filmes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERGUNTA 6 -->
+
+            <div
+                class="faq-item bg-fundo-card border border-borda rounded-lg mb-3 overflow-hidden"
+            >
+
+                <button
+                    class="faq-botao w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition"
+                >
+
+                    <span
+                        data-translate="pergunta6"
+                        class="font-semibold text-sm sm:text-base"
+                    >
+                        É possível alterar o idioma?
+                    </span>
+
+                    <i
+                        class="fa-solid fa-plus faq-icon text-streamix text-lg transition-transform duration-300"
+                    ></i>
+
+                </button>
+
+
+                <div
+                    class="faq-resposta hidden px-5 pb-4 text-secundaria text-sm leading-relaxed"
+                >
+
+                    <p data-translate="resposta6">
+                        Sim. Podes escolher entre Português e Inglês através do
+                        seletor de idioma presente na barra de navegação.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         RODAPÉ
+    ========================================================== -->
+
+    <footer
+        class="bg-fundo border-t border-gray-800 px-5 sm:px-8 md:px-16 py-10 sm:py-12"
+    >
+
+        <div class="max-w-5xl mx-auto text-center">
+
+            <h2
+                class="text-xl sm:text-2xl font-black text-streamix mb-8"
+            >
+                STREAMIX
+            </h2>
+
+
+            <div
+                class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-secundaria text-sm"
+            >
+
+                <a
+                    href="#perguntas"
+                    data-translate="perguntas"
+                    class="hover:text-white transition"
+                >
+                    Perguntas frequentes
+                </a>
+
+
+                <a
+                    href="#"
+                    data-translate="termos"
+                    class="hover:text-white transition"
+                >
+                    Termos de utilização
+                </a>
+
+
+                <a
+                    href="#"
+                    data-translate="privacidade"
+                    class="hover:text-white transition"
+                >
+                    Privacidade
+                </a>
+
+
+                <a
+                    href="#"
+                    data-translate="contactos"
+                    class="hover:text-white transition"
+                >
+                    Contactos
+                </a>
+
+            </div>
+
+
+            <p
+                data-translate="direitos"
+                class="text-texto-cinza text-xs sm:text-sm mt-8"
+            >
+                © 2026 Streamix. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           TRADUÇÕES
+        ===================================================== */
+
+        const traducoes = {
+
+            pt: {
+
+                inicio: "Início",
+                filmes: "Filmes",
+                planos: "Planos",
+                perguntas: "Perguntas frequentes",
+
+                entrar: "Entrar",
+
+                pesquisar: "Pesquisar...",
+                pesquisarFilmes: "Pesquisar filmes...",
+
+                original: "STREAMIX ORIGINAL",
+                titulo: "Eclipse",
+                tipo: "Filme",
+
+                descricao:
+                    "Uma equipa de investigadores viaja para um local inabitável onde descobrem um mistério que poderá mudar o futuro da humanidade.",
+
+                assistir: "Assistir",
+                informacoes: "Mais informações",
+
+                populares: "Populares",
+
+                planosTitulo: "Escolhe o teu plano",
+
+                planosDescricao:
+                    "Escolhe a subscrição ideal para ti.",
+
+                gratuito: "Grátis",
+
+                gratuitoDescricao:
+                    "Para experimentar o Streamix.",
+
+                basico: "Básico",
+
+                basicoDescricao:
+                    "Para quem vê ocasionalmente.",
+
+                premium: "Premium",
+
+                premiumDescricao:
+                    "Para uma experiência completa.",
+
+                plus: "PLUS+",
+
+                plusDescricao:
+                    "Para toda a família.",
+
+
+                /* PERGUNTAS FREQUENTES */
+
+                perguntasTitulo:
+                    "Perguntas frequentes",
+
+                perguntasDescricao:
+                    "Encontra respostas às perguntas mais frequentes sobre o Streamix.",
+
+                pergunta1:
+                    "O que é o Streamix?",
+
+                resposta1:
+                    "O Streamix é uma plataforma de streaming onde podes encontrar filmes e conteúdos para assistir online.",
+
+                pergunta2:
+                    "Quais são os planos disponíveis?",
+
+                resposta2:
+                    "Existem quatro opções: Teste Grátis, Básico, Premium e PLUS+. Cada plano possui diferentes funcionalidades e preços.",
+
+                pergunta3:
+                    "Posso assistir em vários dispositivos?",
+
+                resposta3:
+                    "Sim. O número de dispositivos disponíveis depende do plano escolhido.",
+
+                pergunta4:
+                    "O Streamix funciona no telemóvel?",
+
+                resposta4:
+                    "Sim. O site adapta-se a diferentes tamanhos de ecrã, incluindo computadores, tablets e telemóveis.",
+
+                pergunta5:
+                    "Como posso pesquisar um filme?",
+
+                resposta5:
+                    "Podes utilizar a barra de pesquisa no topo da página ou a pesquisa disponível na secção de filmes.",
+
+                pergunta6:
+                    "É possível alterar o idioma?",
+
+                resposta6:
+                    "Sim. Podes escolher entre Português e Inglês através do seletor de idioma presente na barra de navegação.",
+
+
+                escolher: "Porque escolher o Streamix?",
+
+                variedade: "Grande variedade",
+
+                variedadeTexto:
+                    "Encontra filmes e séries para todos os gostos.",
+
+                facil: "Fácil de utilizar",
+
+                facilTexto:
+                    "Encontra rapidamente aquilo que queres assistir.",
+
+                dispositivos: "Em qualquer dispositivo",
+
+                dispositivosTexto:
+                    "Uma experiência adaptada ao computador, tablet ou telemóvel.",
+
+                termos: "Termos de utilização",
+
+                privacidade: "Privacidade",
+
+                contactos: "Contactos",
+
+                nenhumFilme: "Nenhum filme encontrado",
+
+                tentarNovamente:
+                    "Tenta pesquisar por outro nome.",
+
+                direitos:
+                    "© 2026 Streamix. Todos os direitos reservados."
+
+            },
+
+
+            en: {
+
+                inicio: "Home",
+                filmes: "Movies",
+                planos: "Plans",
+                perguntas: "Frequently asked questions",
+
+                entrar: "Sign in",
+
+                pesquisar: "Search...",
+                pesquisarFilmes: "Search movies...",
+
+                original: "STREAMIX ORIGINAL",
+                titulo: "Eclipse",
+                tipo: "Movie",
+
+                descricao:
+                    "A team of researchers travels to an uninhabitable location where they discover a mystery that could change the future of humanity.",
+
+                assistir: "Watch",
+                informacoes: "More information",
+
+                populares: "Popular",
+
+                planosTitulo: "Choose your plan",
+
+                planosDescricao:
+                    "Choose the subscription that suits you.",
+
+                gratuito: "Free",
+
+                gratuitoDescricao:
+                    "To try Streamix.",
+
+                basico: "Basic",
+
+                basicoDescricao:
+                    "For occasional viewers.",
+
+                premium: "Premium",
+
+                premiumDescricao:
+                    "For a complete experience.",
+
+                plus: "PLUS+",
+
+                plusDescricao:
+                    "For the whole family.",
+
+
+                /* FREQUENTLY ASKED QUESTIONS */
+
+                perguntasTitulo:
+                    "Frequently asked questions",
+
+                perguntasDescricao:
+                    "Find answers to the most frequently asked questions about Streamix.",
+
+                pergunta1:
+                    "What is Streamix?",
+
+                resposta1:
+                    "Streamix is a streaming platform where you can find movies and content to watch online.",
+
+                pergunta2:
+                    "What plans are available?",
+
+                resposta2:
+                    "There are four options: Free Trial, Basic, Premium and PLUS+. Each plan has different features and prices.",
+
+                pergunta3:
+                    "Can I watch on multiple devices?",
+
+                resposta3:
+                    "Yes. The number of available devices depends on the plan you choose.",
+
+                pergunta4:
+                    "Does Streamix work on mobile phones?",
+
+                resposta4:
+                    "Yes. The website adapts to different screen sizes, including computers, tablets and mobile phones.",
+
+                pergunta5:
+                    "How can I search for a movie?",
+
+                resposta5:
+                    "You can use the search bar at the top of the page or the search option available in the movies section.",
+
+                pergunta6:
+                    "Can I change the language?",
+
+                resposta6:
+                    "Yes. You can choose between Portuguese and English using the language selector in the navigation bar.",
+
+
+                escolher: "Why choose Streamix?",
+
+                variedade: "Great variety",
+
+                variedadeTexto:
+                    "Find movies and series for every taste.",
+
+                facil: "Easy to use",
+
+                facilTexto:
+                    "Quickly find something you want to watch.",
+
+                dispositivos: "On any device",
+
+                dispositivosTexto:
+                    "An experience adapted to computer, tablet or mobile.",
+
+                termos: "Terms of use",
+
+                privacidade: "Privacy",
+
+                contactos: "Contact",
+
+                nenhumFilme: "No movies found",
+
+                tentarNovamente:
+                    "Try searching for another name.",
+
+                direitos:
+                    "© 2026 Streamix. All rights reserved."
+
+            }
+
+        };
+
+
+        /* =====================================================
+           IDIOMA
+        ===================================================== */
+
+        const idioma =
+            document.getElementById("idioma");
+
+
+        function traduzir(lingua) {
+
+            const textos =
+                traducoes[lingua];
+
+
+            document
+                .querySelectorAll("[data-translate]")
+                .forEach(elemento => {
+
+                    const chave =
+                        elemento.getAttribute("data-translate");
+
+
+                    if (textos[chave]) {
+
+                        elemento.textContent =
+                            textos[chave];
+
+                    }
+
+                });
+
+
+            document
+                .querySelectorAll("[data-translate-placeholder]")
+                .forEach(elemento => {
+
+                    const chave =
+                        elemento.getAttribute(
+                            "data-translate-placeholder"
+                        );
+
+
+                    if (textos[chave]) {
+
+                        elemento.placeholder =
+                            textos[chave];
+
+                    }
+
+                });
+
+
+            document.documentElement.lang =
+                lingua === "en"
+                    ? "en"
+                    : "pt-PT";
+
+        }
+
+
+        idioma.addEventListener(
+            "change",
+            function () {
+
+                traduzir(this.value);
+
+            }
+        );
+
+
+        /* =====================================================
+           PESQUISA
+        ===================================================== */
+
+        const pesquisa =
+            document.getElementById("pesquisa");
+
+
+        const pesquisaMobile =
+            document.getElementById("pesquisa-mobile");
+
+
+        const filmes =
+            document.querySelectorAll("[data-filme]");
+
+
+        const semResultados =
+            document.getElementById("sem-resultados");
+
+
+        function pesquisarFilmes(texto) {
+
+            const pesquisaTexto =
+                texto.toLowerCase().trim();
+
+
+            let encontrados = 0;
+
+
+            filmes.forEach(filme => {
+
+                const nomeFilme =
+                    filme
+                        .getAttribute("data-filme")
+                        .toLowerCase();
+
+
+                if (
+                    pesquisaTexto === "" ||
+                    nomeFilme.includes(pesquisaTexto)
+                ) {
+
+                    filme.classList.remove("hidden");
+
+                    encontrados++;
+
+                } else {
+
+                    filme.classList.add("hidden");
+
+                }
+
+            });
+
+
+            if (encontrados === 0) {
+
+                semResultados.classList.remove("hidden");
+
+            } else {
+
+                semResultados.classList.add("hidden");
+
+            }
+
+        }
+
+
+        pesquisa.addEventListener(
+            "input",
+            function () {
+
+                pesquisarFilmes(this.value);
+
+                pesquisaMobile.value =
+                    this.value;
+
+            }
+        );
+
+
+        pesquisaMobile.addEventListener(
+            "input",
+            function () {
+
+                pesquisarFilmes(this.value);
+
+                pesquisa.value =
+                    this.value;
+
+            }
+        );
+
+
+        /* =====================================================
+           PERGUNTAS FREQUENTES
+        ===================================================== */
+
+        const perguntas =
+            document.querySelectorAll(".faq-botao");
+
+
+        perguntas.forEach(botao => {
+
+            botao.addEventListener(
+                "click",
+                function () {
+
+                    const item =
+                        this.closest(".faq-item");
+
+                    const resposta =
+                        item.querySelector(".faq-resposta");
+
+                    const icon =
+                        item.querySelector(".faq-icon");
+
+
+                    resposta.classList.toggle("hidden");
+
+
+                    if (resposta.classList.contains("hidden")) {
+
+                        icon.classList.remove("fa-minus");
+
+                        icon.classList.add("fa-plus");
+
+                    } else {
+
+                        icon.classList.remove("fa-plus");
+
+                        icon.classList.add("fa-minus");
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        /* =====================================================
+           BARRA DE NAVEGAÇÃO NO SCROLL
+        ===================================================== */
+
+        const navbar =
+            document.getElementById("navbar");
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (window.scrollY > 20) {
+
+                    navbar.classList.add(
+                        "bg-black/85",
+                        "backdrop-blur-md",
+                        "shadow-lg",
+                        "border-b",
+                        "border-white/10"
+                    );
+
+                } else {
+
+                    navbar.classList.remove(
+                        "bg-black/85",
+                        "backdrop-blur-md",
+                        "shadow-lg",
+                        "border-b",
+                        "border-white/10"
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
